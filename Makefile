@@ -1,6 +1,7 @@
 # Game's Makefile
 # This Makefile compiles the game project
 
+# ==================== Variables ====================
 # Compiler for Game Boy
 CC = lcc
 
@@ -24,6 +25,7 @@ OBJECTS = $(SOURCES:.c=.o)
 # All lcc objects
 ALL_OBJECTS = $(OBJECTS) *.asm *.lst *.sym *.ihx
 
+# ==================== Main compilation ====================
 # Default target : build the executable
 all: $(TARGET).gb
 
@@ -35,21 +37,25 @@ all: $(TARGET).gb
 $(TARGET).gb: $(OBJECTS)
 	$(CC) $(OBJECTS) -o $(TARGET).gb
 
+# ==================== Shortcuts ====================
 # Format code style
 format:
-	clang-format -i $(SOURCES) $(HEADERS)
+	clear && clang-format -i $(SOURCES) $(HEADERS)
 
 # Code checker
 check:
-	cppcheck --enable=all --inconclusive --std=c89 $(SOURCES) $(HEADERS)
+	clear && cppcheck --enable=all --inconclusive --std=c89 $(SOURCES) $(HEADERS)
+
+# Format + check
+check-all: format check
 
 # Remove object files
 clean:
-	rm -f $(ALL_OBJECTS)
+	clear && rm -f $(ALL_OBJECTS)
 
 # Remove object files and executable
 fclean:
-	rm -f $(ALL_OBJECTS) $(TARGET).gb
+	clear && rm -f $(ALL_OBJECTS) $(TARGET).gb
 
 # Rebuild everything (clean and rebuild)
 re: fclean all
@@ -59,6 +65,7 @@ help:
 	@echo "make -> Build project"
 	@echo "make format -> Format code synthax"
 	@echo "make check -> Code checker"
+	@echo "make check-all -> Format code + check it"
 	@echo "make clean -> Remove objects"
 	@echo "make fclean -> Remove objects + executable"
 	@echo "make re -> Clean and Rebuild"
