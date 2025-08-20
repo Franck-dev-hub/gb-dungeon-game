@@ -1,6 +1,5 @@
 # Language
 BasedOnStyle: LLVM
-Language: C
 
 # Indentation
 IndentWidth: 8
