@@ -3,9 +3,15 @@
 
 #include <gb/gb.h>
 
-/* Prototypes */
+/* ========== Prototypes ========== */
+/* Player */
 void player_update(void);
+void player_display(void);
+
+/* World */
 void world_update(void);
+
+/* Battle */
 int  battle_trigger(void);
 void battle_start(void);
 
