@@ -31,11 +31,11 @@ all: $(TARGET).gb
 
 # Compile .c files independantly
 %.o: %.c
-	$(CC) -c $(CFLAGS) $< -o $@
+	@$(CC) -c $(CFLAGS) $< -o $@
 
 # Link objects to create executable
 $(TARGET).gb: $(OBJECTS)
-	$(CC) $(OBJECTS) -o $(TARGET).gb
+	@$(CC) $(OBJECTS) -o $(TARGET).gb
 
 # ==================== Shortcuts ====================
 # Format code style
