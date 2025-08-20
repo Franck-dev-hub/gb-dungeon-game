@@ -1,0 +1,6 @@
+# lcc objects
+*.o
+*.asm
+*.lst
+*.sym
+*.ihx
