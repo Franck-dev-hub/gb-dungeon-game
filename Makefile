@@ -15,6 +15,9 @@ TARGET = game
 # Source files
 SOURCES = $(wildcard *.c)
 
+# Header files
+HEADERS = $(wildcard *.h)
+
 # Objects files
 OBJECTS = $(SOURCES:.c=.o)
 
@@ -32,6 +35,10 @@ all: $(TARGET).gb
 $(TARGET).gb: $(OBJECTS)
 	$(CC) $(OBJECTS) -o $(TARGET).gb
 
+# Format code style
+format:
+	clang-format -i $(SOURCES) $(HEADERS)
+
 # Remove object files
 clean:
 	rm -f $(ALL_OBJECTS)
@@ -46,6 +53,7 @@ re: fclean all
 help:
 	@echo "Commands allowed :"
 	@echo "make -> Build project"
+	@echo "make format -> Format code synthax"
 	@echo "make clean -> Remove objects"
 	@echo "make fclean -> Remove objects + executable"
 	@echo "make re -> Clean and Rebuild"
