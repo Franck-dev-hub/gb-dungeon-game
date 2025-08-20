@@ -60,6 +60,10 @@ fclean:
 # Rebuild everything (clean and rebuild)
 re: fclean all
 
+# Execute gb game
+exec:
+	$(MAKE) && sameboy $(TARGET).gb
+
 help:
 	@echo "Commands allowed :"
 	@echo "make -> Build project"
@@ -69,4 +73,5 @@ help:
 	@echo "make clean -> Remove objects"
 	@echo "make fclean -> Remove objects + executable"
 	@echo "make re -> Clean and Rebuild"
+	@echo "make exec -> Compile & execute game"
 	@echo "make help -> For help"
