@@ -1,0 +1,14 @@
+Largeur = 160px -> 20 tiles
+Longeur = 144px -> 18 tiles
+
+Haut Gauche	-> 8, 16
+Haut Droit	-> 160, 16
+Bas Droit	-> 160, 152
+Bas Gauche	-> 8, 152
+
+0b00000000, 0b00000000 -> bit bas, bit haut -> ligne blanche
+00 -> bit haut = 0, bit bas = 0 -> blanc
+01 -> bit haut = 0, bit bas = 1 -> gris clair
+10 -> bit haut = 1, bit bas = 0 -> gris foncé
+11 -> bit haut = 1, bit bas = 1 -> noir
+

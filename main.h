@@ -4,6 +4,9 @@
 #include <gb/gb.h>
 
 /* Prototypes */
-void player_movement(UINT8 *x, UINT8 *y);
+void player_update(void);
+void world_update(void);
+int  battle_trigger(void);
+void battle_start(void);
 
 #endif
