@@ -9,8 +9,8 @@ IndentCaseLabels: true
 IndentPPDirectives: None
 
 # Row length
-ColumnLimit: 80
-BreakBeforeBinaryOperators: All
+ColumnLimit: 0
+BreakBeforeBinaryOperators: None
 BinPackArguments: true
 BinPackParameters: true
 
@@ -26,7 +26,7 @@ SpacesInParentheses: false
 SpaceAfterCStyleCast: false
 
 # Alignment
-AlignConsecutiveAssignments: true
+AlignConsecutiveAssignments: false
 AlignConsecutiveDeclarations: true
 AlignOperands: true
 
