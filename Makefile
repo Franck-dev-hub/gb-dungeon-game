@@ -39,6 +39,10 @@ $(TARGET).gb: $(OBJECTS)
 format:
 	clang-format -i $(SOURCES) $(HEADERS)
 
+# Code checker
+check:
+	cppcheck --enable=all --inconclusive --std=c89 $(SOURCES) $(HEADERS)
+
 # Remove object files
 clean:
 	rm -f $(ALL_OBJECTS)
@@ -54,6 +58,7 @@ help:
 	@echo "Commands allowed :"
 	@echo "make -> Build project"
 	@echo "make format -> Format code synthax"
+	@echo "make check -> Code checker"
 	@echo "make clean -> Remove objects"
 	@echo "make fclean -> Remove objects + executable"
 	@echo "make re -> Clean and Rebuild"
