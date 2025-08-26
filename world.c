@@ -104,9 +104,9 @@ void world_scroll(void)
 
 	/* Actual position */
 	UINT8 player_tile_x_left = (cam_x + SCREEN_X / 2) / TILE;
-	UINT8 player_tile_x_right = (cam_x + SCREEN_X / 2 + PLAYER_X) / TILE;
+	UINT8 player_tile_x_right = (cam_x + SCREEN_X / 2 + PLAYER_X - 1) / TILE;
 	UINT8 player_tile_y_up = (cam_y + SCREEN_Y / 2) / TILE;
-	UINT8 player_tile_y_down = (cam_y + SCREEN_Y / 2 + PLAYER_Y) / TILE;
+	UINT8 player_tile_y_down = (cam_y + SCREEN_Y / 2 + PLAYER_Y - 1) / TILE;
 
 	/* Next position */
 	UINT8 next_left;
