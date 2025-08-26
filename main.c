@@ -1,17 +1,13 @@
 #include "main.h"
 
-/**
- * main -
- *
- */
 void main(void)
 {
-	player_display(); // Init player
+	player_display();
+	world_init();
 
 	while (1)
 	{
-		player_update();
-		world_update();
+		world_scroll();
 		if (battle_trigger())
 		{
 			battle_start();

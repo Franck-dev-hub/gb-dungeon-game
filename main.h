@@ -1,11 +1,12 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-#include <gb/gb.h>
+/* ========== Libraries ========== */
+#include "gb.h"
+#include <stdio.h>
 
 /* ========== Prototypes ========== */
 /* Player */
-void player_update(void);
 void player_display(void);
 
 /* World */
