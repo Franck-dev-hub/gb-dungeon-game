@@ -2,8 +2,11 @@
 #define MAIN_H
 
 /* ========== Libraries ========== */
-#include "gb.h"
+/* Standards */
+#include <gb/gb.h>
 #include <stdio.h>
+
+/* Custom */
 
 /* ========== Prototypes ========== */
 /* Player */
