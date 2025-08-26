@@ -1,5 +1,5 @@
 #include "main.h"
-#include "assets/world/sprite_black.c"
+#include "assets/world/sprite_wall.c"
 #include "assets/world/sprite_white.c"
 #include "assets/world/world_map.c"
 
@@ -19,7 +19,7 @@ void world_init(void)
 	int i, j;
 
 	set_bkg_data(0, 1, sprite_white);
-	set_bkg_data(1, 1, sprite_black);
+	set_bkg_data(1, 1, sprite_wall);
 
 	for (i = 0; i < MAP_HEIGHT; i++)
 	{
