@@ -3,9 +3,6 @@
 #include "assets/world/sprite_white.c"
 #include "assets/world/world_map.c"
 
-#define MAP_WIDTH 32
-#define MAP_HEIGHT 32
-
 #define SCREEN_X 160
 #define SCREEN_Y 144
 #define TILE 8

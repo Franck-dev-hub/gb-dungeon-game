@@ -8,6 +8,12 @@
 
 /* Custom */
 
+/* ========== Globals ========== */
+/* Map size */
+#define MAP_HEIGHT 32
+#define MAP_WIDTH 32
+extern uint8_t map[MAP_HEIGHT][MAP_WIDTH];
+
 /* ========== Prototypes ========== */
 /* Player */
 void player_display(void);
