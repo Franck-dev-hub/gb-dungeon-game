@@ -7,9 +7,11 @@
 
 UINT8 sprite_player_idle = 0;
 UINT8 current_frame = 0;
+PlayerDir player_dir;
 
 void player_init(void)
 {
+	player_dir = DIR_RIGHT;
 	set_sprite_data(0, 1, sprite_player_idle_1);
 	set_sprite_data(1, 1, sprite_player_idle_2);
 }

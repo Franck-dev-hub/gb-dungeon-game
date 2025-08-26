@@ -56,6 +56,7 @@ void world_scroll(void)
 
 	if (joypad() & J_LEFT)
 	{
+		player_dir = DIR_LEFT;
 		next_left = (cam_x + SCREEN_X / 2 - speed) / TILE;
 		if (map[player_tile_y_up][next_left] == 0 &&
 		   map[player_tile_y_down][next_left] == 0)
@@ -63,6 +64,7 @@ void world_scroll(void)
 	}
 	if (joypad() & J_RIGHT)
 	{
+		player_dir = DIR_RIGHT;
 		next_right = (cam_x + SCREEN_X / 2 + PLAYER_X - 1 + speed) / TILE;
 		if (map[player_tile_y_up][next_right] == 0 &&
 		   map[player_tile_y_down][next_right] == 0)
@@ -70,6 +72,7 @@ void world_scroll(void)
 	}
 	if (joypad() & J_UP)
 	{
+		player_dir = DIR_UP;
 		next_up = (cam_y + SCREEN_Y / 2 - speed) / TILE;
 		if (map[next_up][player_tile_x_left] == 0 &&
 		   map[next_up][player_tile_x_right] == 0)
@@ -77,6 +80,7 @@ void world_scroll(void)
 	}
 	if (joypad() & J_DOWN)
 	{
+		player_dir = DIR_DOWN;
 		next_down = (cam_y + SCREEN_Y / 2 + PLAYER_Y - 1 + speed) / TILE;
 		if (map[next_down][player_tile_x_left] == 0 &&
 		   map[next_down][player_tile_x_right] == 0)
@@ -87,4 +91,9 @@ void world_scroll(void)
 	cam_y += cam_speed_y;
 
 	scroll_bkg(cam_speed_x, cam_speed_y);
+	if(player_dir == DIR_LEFT)
+		set_sprite_prop(sprite_player_idle, S_FLIPX);
+	else if(player_dir == DIR_RIGHT)
+		set_sprite_prop(sprite_player_idle, 0x00);
+
 }
