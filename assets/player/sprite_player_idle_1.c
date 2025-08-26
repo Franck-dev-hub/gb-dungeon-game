@@ -1,4 +1,4 @@
-const unsigned char sprite_player[] = {
+const unsigned char sprite_player_idle_1[] = {
 	// clang-format off
 	0b11111000, 0b11010010,
 	0b11111000, 0b10000101,
