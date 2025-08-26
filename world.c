@@ -3,9 +3,17 @@
 #define MAP_WIDTH 32
 #define MAP_HEIGHT 32
 
+#define SCREEN_X 160
+#define SCREEN_Y 144
+#define TILE 8
+
+#define PLAYER_X 8
+#define PLAYER_Y 8
+
 UINT8 map[MAP_HEIGHT][MAP_WIDTH] = {
 	// clang-format off
 	{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+	{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
 	{1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1},
 	{1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1},
 	{1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1},
@@ -19,6 +27,8 @@ UINT8 map[MAP_HEIGHT][MAP_WIDTH] = {
 	{1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1},
 	{1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1},
 	{1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1},
+	{1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1},
+	{1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1},
 	{1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1},
 	{1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1},
 	{1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1},
@@ -26,10 +36,7 @@ UINT8 map[MAP_HEIGHT][MAP_WIDTH] = {
 	{1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1},
 	{1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1},
 	{1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1},
-	{1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1},
-	{1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1},
-	{1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1},
-	{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+	{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
 	{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
 	{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
 	{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
@@ -91,13 +98,50 @@ void world_init(void)
 
 void world_scroll(void)
 {
-	INT8 cam_speed_x = 0;
-	INT8 cam_speed_y = 0;
+	INT8  cam_speed_x = 0;
+	INT8  cam_speed_y = 0;
+	UINT8 speed	  = 1;
 
-	if (joypad() & J_LEFT	&& cam_x > -36)	cam_speed_x = -1;
-	if (joypad() & J_RIGHT	&& cam_x < 124)	cam_speed_x = 1;
-	if (joypad() & J_UP	&& cam_y > -56)	cam_speed_y = -1;
-	if (joypad() & J_DOWN	&& cam_y < 120)	cam_speed_y = 1;
+	/* Actual position */
+	UINT8 player_tile_x_left = (cam_x + SCREEN_X / 2) / TILE;
+	UINT8 player_tile_x_right = (cam_x + SCREEN_X / 2 + PLAYER_X) / TILE;
+	UINT8 player_tile_y_up = (cam_y + SCREEN_Y / 2) / TILE;
+	UINT8 player_tile_y_down = (cam_y + SCREEN_Y / 2 + PLAYER_Y) / TILE;
+
+	/* Next position */
+	UINT8 next_left;
+	UINT8 next_right;
+	UINT8 next_up;
+	UINT8 next_down;
+
+	if (joypad() & J_LEFT)
+	{
+		next_left = (cam_x + SCREEN_X / 2 - speed) / TILE;
+		if (map[player_tile_y_up][next_left] == 0 &&
+		   map[player_tile_y_down][next_left] == 0)
+			cam_speed_x = -speed;
+	}
+	if (joypad() & J_RIGHT)
+	{
+		next_right = (cam_x + SCREEN_X / 2 + PLAYER_X - 1 + speed) / TILE;
+		if (map[player_tile_y_up][next_right] == 0 &&
+		   map[player_tile_y_down][next_right] == 0)
+			cam_speed_x = speed;
+	}
+	if (joypad() & J_UP)
+	{
+		next_up = (cam_y + SCREEN_Y / 2 - speed) / TILE;
+		if (map[next_up][player_tile_x_left] == 0 &&
+		   map[next_up][player_tile_x_right] == 0)
+			cam_speed_y = -speed;
+	}
+	if (joypad() & J_DOWN)
+	{
+		next_down = (cam_y + SCREEN_Y / 2 + PLAYER_Y - 1 + speed) / TILE;
+		if (map[next_down][player_tile_x_left] == 0 &&
+		   map[next_down][player_tile_x_right] == 0)
+			cam_speed_y = speed;
+	}
 
 	cam_x += cam_speed_x;
 	cam_y += cam_speed_y;
