@@ -1,9 +1,12 @@
 #include "main.h"
 
+#define SCREEN_X 160
+#define SCREEN_Y 144
+
 void player_display(void)
 {
-	UINT8 player_x = 84;
-	UINT8 player_y = 80;
+	UINT8 player_x = (SCREEN_X / 2) + 8;
+	UINT8 player_y = (SCREEN_Y / 2) + 16;
 
 	unsigned char player[] = {
 		// clang-format off
