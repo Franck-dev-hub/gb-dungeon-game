@@ -15,9 +15,9 @@
 extern uint8_t map[MAP_HEIGHT][MAP_WIDTH];
 
 /* Player vars*/
-typedef enum {DIR_LEFT, DIR_RIGHT, DIR_UP, DIR_DOWN} PlayerDir;
-extern PlayerDir player_dir;
-extern UINT8 sprite_player_idle;
+typedef enum {DIR_LEFT, DIR_RIGHT, DIR_UP, DIR_DOWN} PlayerDirection;
+extern PlayerDirection player_direction;
+extern const unsigned char player_idle[];
 
 /* ========== Prototypes ========== */
 /* Player */

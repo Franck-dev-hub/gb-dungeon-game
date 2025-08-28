@@ -1,4 +1,4 @@
-const unsigned char sprite_player_idle_1[] = {
+const unsigned char player_idle[] = {
 	// clang-format off
 	0b11111000, 0b11010010,
 	0b11111000, 0b10000101,
@@ -8,5 +8,14 @@ const unsigned char sprite_player_idle_1[] = {
 	0b10110000, 0b01111010,
 	0b10000000, 0b01111010,
 	0b01010000, 0b00000010,
+
+	0b00000000, 0b00000000,
+	0b11111000, 0b11010010,
+	0b11111000, 0b10000101,
+	0b11010000, 0b10000010,
+	0b11111000, 0b10000010,
+	0b10111100, 0b11000010,
+	0b10110000, 0b01111010,
+	0b10000000, 0b01111010,
 	// clang-format on
 };
